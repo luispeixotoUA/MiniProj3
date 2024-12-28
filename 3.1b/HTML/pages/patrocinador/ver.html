@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão do Animalec</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-4">
+        <a href="../../index.html">
+          <img src="/images/animalec.png" alt="Logo do Animalec" class="h-10">
+        </a>
+      </div>
+    
+      <!-- Hamburger Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    
+      <!-- Navigation Links -->
+      <div id="menu" class="hidden flex-col md:flex md:flex-row md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-gray-800 md:bg-transparent z-10 shadow-lg md:shadow-none h-full">
+        <a href="../especialistas.html" class="block px-4 py-2 md:py-0 hover:text-blue-400">Especialistas</a>
+        <a href="../patrocinadores.html" class="block px-4 py-2 md:py-0 hover:text-blue-400">Patrocinadores</a>
+        <a href="#" class="block px-4 py-2 md:py-0 hover:text-blue-400">Contactos</a>
+        <a href="#" class="block px-4 py-2 md:py-0 bg-blue-500 text-center rounded-full text-white hover:bg-blue-600">Login</a>
+      </div>
+    </nav>
+  
+    <main class="flex flex-col items-center">
+      <header class="text-center">
+        <h1 class="text-3xl font-bold mb-4 mt-10">Ver Patrocinador</h1>
+        <div class="flex items-center justify-center space-x-4">
+          <div class="h-1 w-80 bg-gray-600"></div>
+          <i class="fas fa-star text-gray-600"></i>
+          <div class="h-1 w-80 bg-gray-600"></div>
+        </div>
+      </header>
+
+
+      <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-md mt-10">
+        <form>
+          <!-- Nome do Especialista -->
+          <div class="mb-4">
+            <label for="nome-especialista" class="block text-gray-700 font-bold mb-2">Nome do Especialista</label>
+            <input
+              type="text"
+              id="nome-especialista"
+              class="w-full border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Digite o nome do especialista"
+            />
+          </div>
+      
+          <!-- Animal Favorito -->
+          <div class="mb-4">
+            <label for="animal" class="block text-gray-700 font-bold mb-2">Animal Favorito</label>
+            <input
+              type="text"
+              id="animal"
+              class="w-full border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Digite o animal favorito"
+            />
+          </div>
+      
+          <!-- Categoria (Dropdown) -->
+          <div class="mb-4">
+            <label for="categoria" class="block text-gray-700 font-bold mb-2">Categoria</label>
+            <select
+              id="categoria"
+              class="w-full border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option>Categoria 1</option>
+              <option>Categoria 2</option>
+              <option>EspeCategoriacialidade 3</option>
+            </select>
+          </div>
+      
+          <!-- Descrição -->
+          <div class="mb-6">
+            <label for="descricao-especialista" class="block text-gray-700 font-bold mb-2">Descrição</label>
+            <textarea
+              id="descricao-especialista"
+              rows="4"
+              class="w-full border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Digite uma descrição"
+            ></textarea>
+          </div>
+      
+          <!-- Botões -->
+          <div class="flex justify-end space-x-4">
+            <button
+              type="button"
+              class="border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="border border-green-500 text-green-500 px-4 py-2 rounded-md hover:bg-green-500 hover:text-white transition"
+            >
+              Adicionar
+            </button>
+          </div>
+        </form>
+      </div>
+      
+
+    </main>
+  
+    <script src="js/menu.js"></script>
+  </body>
+  </html>

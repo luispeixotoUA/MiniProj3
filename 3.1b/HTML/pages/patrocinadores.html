@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Patrocinadores</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="../index.html">
+        <img src="/images/animalec.png" alt="Logo do Animalec" class="h-10">
+      </a>
+
+            <!-- Navigation Links -->
+            <div id="menu" class="hidden flex-col md:flex md:flex-row md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-gray-800 md:bg-transparent z-10 shadow-lg md:shadow-none h-full">
+              <a href="especialistas.html" class="block px-4 py-2 md:py-0 hover:text-blue-400">Especialistas</a>
+              <a href="patrocinadores.html" class="block px-4 py-2 md:py-0 hover:text-blue-400">Patrocinadores</a>
+              <a href="#" class="block px-4 py-2 md:py-0 hover:text-blue-400">Contactos</a>
+              <a href="#" class="block px-4 py-2 md:py-0 bg-blue-500 text-center rounded-full text-white hover:bg-blue-600">Login</a>
+            </div>
+    </nav>
+
+    <main class="flex flex-col items-center">
+      <header class="text-center">
+        <h1 class="text-3xl font-bold mb-4 mt-10">Gestão de Patrocinadores</h1>
+        <div class="flex items-center justify-center space-x-4">
+          <div class="h-1 w-80 bg-gray-600"></div>
+          <i class="fas fa-star text-gray-600"></i>
+          <div class="h-1 w-80 bg-gray-600"></div>
+        </div>
+      </header>
+
+      <div class="p-4 mt-10">
+        <a href="patrocinador/adicionar.html" class="flex justify-end">
+          <button class="bg-[#07D300] text-white font-bold px-4 py-2 rounded-md hover:bg-green-700 mb-4">
+            ADICIONAR PATROCINADOR
+          </button>
+        </a>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-gray-700 text-white">
+              <th class="text-left px-4 py-2">Nome do Patrocínio <span>↑</span></th>
+              <th class="text-left px-4 py-2">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Linha 1 -->
+            <tr class="border-b">
+              <td class="px-4 py-2">Nome do Patrocínio 1</td>
+              <td class="px-4 py-2 flex gap-2">
+                <a href="patrocinador/ver.html" class="border border-[#17A2B8] text-[#17A2B8] text-sm px-2 py-1 rounded-md hover:bg-[#17A2B8] hover:text-white">VER</a>
+                <a href="patrocinador/editar.html" class="border border-[#07D300] text-[#07D300] text-sm px-2 py-1 rounded-md hover:bg-[#07D300] hover:text-white">EDITAR</a>
+                <a
+                  href="#"
+                  onclick="alert('Tens a certeza que queres remover este patrocínio?'); return false;"
+                  class="border border-[#E50000] text-[#E50000] text-sm px-2 py-1 rounded-md hover:bg-[#E50000] hover:text-white"
+                >
+                  REMOVER
+                </a>
+              </td>
+            </tr>
+            <!-- Linha 2 -->
+            <tr class="border-b">
+              <td class="px-4 py-2">Nome do Patrocínio 2</td>
+              <td class="px-4 py-2 flex gap-2">
+                <a href="patrocinador/ver.html" class="border border-[#17A2B8] text-[#17A2B8] text-sm px-2 py-1 rounded-md hover:bg-[#17A2B8] hover:text-white">VER</a>
+                <a href="patrocinador/editar.html" class="border border-[#07D300] text-[#07D300] text-sm px-2 py-1 rounded-md hover:bg-[#07D300] hover:text-white">EDITAR</a>
+                <a
+                  href="#"
+                  onclick="alert('Tens a certeza que queres remover este patrocínio?'); return false;"
+                  class="border border-[#E50000] text-[#E50000] text-sm px-2 py-1 rounded-md hover:bg-[#E50000] hover:text-white"
+                >
+                  REMOVER
+                </a>
+              </td>
