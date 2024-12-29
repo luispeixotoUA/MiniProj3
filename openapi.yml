@@ -1,0 +1,236 @@
+openapi: 3.0.0
+info:
+  title: Animalec API
+  version: 1.0.0
+  description: API para gestão de especialistas e patrocinadores no sistema Animalec
+
+servers:
+  - url: http://localhost:8080
+    description: Development server
+
+
+tags:
+  - name: Authentication
+    description: Endpoints para autenticação
+  - name: Sponsors
+    description: Endpoints relacionados com patrocinadores
+  - name: Specialists
+    description: Endpoints relacionados com especialistas
+
+paths:
+  /auth:
+    post:
+      tags:
+        - Authentication
+      summary: Login to get authentication token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successful login
+          headers:
+            Authorization:
+              schema:
+                type: string
+              description: Bearer token for authentication
+  
+  /specialists:
+    get:
+      tags:
+        - Specialists
+      summary: Get all specialists
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of specialists
+    post:
+      tags:
+        - Specialists
+      summary: Create a new specialist
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Specialist'
+      responses:
+        '201':
+          description: Specialist created successfully
+  
+  /specialists/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - Specialists
+      summary: Get specialist by ID
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Specialist found
+    put:
+      tags:
+        - Specialists
+      summary: Update specialist
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Specialist'
+      responses:
+        '200':
+          description: Specialist updated successfully
+    delete:
+      tags:
+        - Specialists
+      summary: Delete specialist
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Specialist deleted successfully
+  
+  /sponsors:
+    get:
+      tags:
+        - Sponsors
+      summary: Get all sponsors
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of sponsors
+    post:
+      tags:
+        - Sponsors
+      summary: Create a new sponsor
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sponsor'
+      responses:
+        '201':
+          description: Sponsor created successfully
+  
+  /sponsors/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - Sponsors
+      summary: Get sponsor by ID
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Sponsor found
+    put:
+      tags:
+        - Sponsors
+      summary: Update sponsor
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sponsor'
+      responses:
+        '200':
+          description: Sponsor updated successfully
+    delete:
+      tags:
+        - Sponsors
+      summary: Delete sponsor
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Sponsor deleted successfully
+
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+  
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          example: "admin"
+        password:
+          type: string
+          example: "admin"
+    
+    Specialist:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Ambrósio"
+        job:
+          type: string
+          example: "Veterenário"
+        expertise:
+          type: string
+          example: "Cats"
+        description:
+          type: string
+          example: "Com mais de 10 anos de experiência"
+        active:
+          type: boolean
+          default: true
+    
+    Sponsor:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Empresa X"
+        animal:
+          type: string
+          example: "cavalo"
+        category:
+          type: string
+          example: "Doação Recorrente"
+        quota:
+          type: string
+          example: "Corporativo"
+        description:
+          type: string
+          example: "Description of sponsorship"
+        active:
+          type: boolean
+          default: true

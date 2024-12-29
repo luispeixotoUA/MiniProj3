@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "5e4bb9a7-59f6-420f-b96e-f8b80e8b72b4",
+		"name": "Animalec",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34441769"
+	},
+	"item": [
+		{
+			"name": "Specialist",
+			"item": [
+				{
+					"name": "Specialists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/specialists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"specialists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specialist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_TOKEN_HERE"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ambrósio\",\n  \"job\": \"Veterenário\",\n  \"expertise\": \"Cats\",\n  \"description\": \"Com mais de 10 anos de experiência\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/specialists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"specialists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specialist",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "xyz789",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Judite\",\n  \"job\": \"Veterenário\",\n  \"expertise\": \"Cats\",\n  \"description\": \"Com mais de 10 anos de experiência\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/specialists/67719c36a2b993154f58c7f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"specialists",
+								"67719c36a2b993154f58c7f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specialist",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_TOKEN_HERE",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/specialists/67719891eaa05c39a8b47c94",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"specialists",
+								"67719891eaa05c39a8b47c94"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{authToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Sponsor",
+			"item": [
+				{
+					"name": "Sponsor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sponsor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "YOUR_AUTH_TOKEN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Empresa X\",\n  \"animal\": \"cavalo\",\n  \"category\": \"Doação Recorrente\",\n  \"quota\": \"Corporativo\",\n  \"description\": \"Description of sponsorship\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sponsors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sponsor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Empresa X\",\n  \"animal\": \"cavalo\",\n  \"category\": \"Doação Recorrente\",\n  \"quota\": \"Corporativo\",\n  \"description\": \"Description of sponsorship\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sponsors/6771a1ce0fbe7575586073a6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsors",
+								"6771a1ce0fbe7575586073a6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sponsor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "YOUR_AUTH_TOKEN",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/sponsors/6771a1d00fbe7575586073a9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsors",
+								"6771a1d00fbe7575586073a9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "{{authToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Captura o token do cabeçalho 'Authorization' da resposta",
+							"const token = pm.response.headers.get('Authorization');",
+							"",
+							"// Verifica se o token foi recebido corretamente",
+							"if (token) {",
+							"    // Armazena o token numa variável global chamada 'authToken'",
+							"    pm.globals.set('authToken', token);",
+							"    console.log('Token armazenado com sucesso:', token);",
+							"} else {",
+							"    console.error('Erro: Token não encontrado nos cabeçalhos da resposta.');",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\":\"admin\",\n\"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
