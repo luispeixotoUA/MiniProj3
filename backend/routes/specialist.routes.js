@@ -12,7 +12,7 @@ router.route('/')
     .get(AuthController.checkAuth, SpecialistController.get)
     .post(AuthController.checkAuth, [
         body('name').isString(),
-        body('group').isString()
+        body('expertise').isString()
     ], SpecialistController.create);
 
 router.route("/deactivate/:id")

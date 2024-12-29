@@ -32,11 +32,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="sponsor of sponsors" :key="sponsor.id">
+          <tr v-for="sponsor in sponsors" :key="sponsor._id">
             <td class="pt-4 w-100">{{ sponsor.name }}</td>
             <td class="d-flex justify-content-end align-items-center">
               <button
-                @click="viewSponsor(sponsor.id)"
+                @click="viewSponsor(sponsor._id)"
                 type="button"
                 class="btn btn-outline-info btn-md mr-2 custom-btn"
               >
@@ -45,7 +45,7 @@
               <router-link
                 :to="{
                   name: 'editSponsor',
-                  params: { sponsorId: sponsor.id }
+                  params: { sponsorId: sponsor._id }
                 }"
                 tag="button"
                 class="btn btn-outline-success btn-md mr-2 custom-btn"
@@ -122,7 +122,7 @@ export default {
       else return 0;
     },
     viewSponsor(id) {
-      const sponsor = this.sponsors.find(sponsor => sponsor.id === id);
+      const sponsor = this.sponsors.find(sponsor => sponsor._id === id);
 
       this.$fire({
         title: sponsor.name,

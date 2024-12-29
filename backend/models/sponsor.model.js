@@ -5,7 +5,9 @@ const CONFIG = require('../config/config');
 const sponsorSchema = new Schema({
     name: String,
     animal: String,
+    category: String,
     quota: String,
+    description: String,
     active: {
         type: Boolean,
         default: true

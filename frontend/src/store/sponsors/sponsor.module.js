@@ -1,13 +1,13 @@
 import sponsorService from "@/api/sponsor.service";
 import {
-  // Actions
-  FETCH_SPONSORS,
-  ADD_SPONSOR,
-  EDIT_SPONSOR,
-  REMOVE_SPONSOR,
-  // Mutations
-  SET_SPONSORS,
-  SET_MESSAGE
+    ADD_SPONSOR,
+    EDIT_SPONSOR,
+    // Actions
+    FETCH_SPONSORS,
+    REMOVE_SPONSOR,
+    SET_MESSAGE,
+    // Mutations
+    SET_SPONSORS
 } from "./sponsor.constants";
 
 const state = {
@@ -18,7 +18,7 @@ const state = {
 const getters = {
   getSponsors: state => state.sponsors,
   getSponsorById: state => id => {
-    return state.sponsors.find(sponsor => sponsor.id === id);
+    return state.sponsors.find(sponsor => sponsor._id === id);
   },
   getMessage: state => state.message
 };

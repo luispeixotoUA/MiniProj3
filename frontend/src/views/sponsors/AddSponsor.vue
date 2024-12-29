@@ -26,10 +26,10 @@
                 v-model="animal"
                 required
               >
-                <option value>Escolha um animal</option>
-                <option v-for="animal of animals" :key="animal.id">{{
-                  animal.name
-                }}</option>
+                <option value="">Escolha um animal</option>
+                <option v-for="animal in animals" :key="animal._id" :value="animal.name">
+                  {{ animal.name }}
+                </option>
               </select>
             </div>
             <div class="form-group">
@@ -59,6 +59,23 @@
                 v-model="description"
                 required
               ></textarea>
+            </div>
+            <div class="form-group">
+              <select
+                id="sltQuota"
+                class="form-control form-control-lg"
+                v-model="quota"
+                required
+              >
+                <option value="">Selecione um tipo de quota</option>
+                <option
+                  v-for="(label, value) in quotaTypes"
+                  :value="value"
+                  :key="value"
+                >
+                  {{ label }}
+                </option>
+              </select>
             </div>
             <div class="button-group">
               <span></span>
@@ -97,12 +114,11 @@ export default {
       name: "",
       category: "",
       description: "",
-      prefanimal: "",
       animal: "",
-      evaluation: [],
-      comments: [],
+      active: true,
+      quota: "",
       categories: {
-        Promocional: "Patrocínio Promocional",
+        Promotional: "Patrocínio Promocional",
         "Doação Recorrente": "Doação Recorrente",
         "Doação Única": "Doação Única",
         Corporativo: "Patrocínio Corporativo",
@@ -110,7 +126,13 @@ export default {
         Subsídio: "Subsídio",
         Parceria: "Parceria Estratégica",
         Other: "Outros"
-      }
+      },
+      quotaTypes: {
+        Corporativo: "Corporativo",
+        Individual: "Individual",
+        Especial: "Especial"
+      },
+      animals: []
     };
   },
   computed: {
@@ -129,7 +151,16 @@ export default {
       );
     },
     add() {
-      this.$store.dispatch(`sponsor/${ADD_SPONSOR}`, this.$data).then(
+      const sponsorData = {
+        name: this.name,
+        animal: this.animal,
+        category: this.category,
+        description: this.description,
+        quota: this.quota,
+        active: true
+      };
+      
+      this.$store.dispatch(`sponsor/${ADD_SPONSOR}`, sponsorData).then(
         () => {
           this.$alert(this.getMessage, "Patrocinador adicionado!", "success");
           router.push({

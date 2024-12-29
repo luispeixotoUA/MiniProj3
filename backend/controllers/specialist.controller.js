@@ -27,7 +27,7 @@ exports.create = (req, res) => {
     job: req.body.job,
     active: true,
     description: req.body.description,
-    expertise: req.body.expertise,
+    expertise: req.body.expertise
   }).save((error, specialist) => {
     if (error) throw error;
     let message = SpecialistMessages.success.s0;
@@ -41,7 +41,7 @@ exports.update = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Specialist.findOneAndUpdate({
-    id: req.params.id
+    _id: req.params.id
   }, {
     $set: req.body
   }, {
@@ -62,12 +62,11 @@ exports.delete = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Specialist.deleteOne({
-    id: req.params.id
+    _id: req.params.id
   }, (error, result) => {
     if (error) throw error;
     if (result.deletedCount <= 0) return res.status(SpecialistMessages.error.e0.http).send(SpecialistMessages.error.e0);
     return res.status(SpecialistMessages.success.s3.http).send(SpecialistMessages.success.s3);
-
   });
 }
 
@@ -76,7 +75,7 @@ exports.getOne = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Specialist.findOne({
-    id: req.params.id
+    _id: req.params.id
   }, (error, specialist) => {
     if (error) throw error;
     if (!specialist) return res.status(SpecialistMessages.error.e1.http).send(SpecialistMessages.error.e1);
@@ -91,7 +90,7 @@ exports.activate = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Specialist.updateOne({
-    id: req.params.id
+    _id: req.params.id
   }, {
     $set: {
       active: true
@@ -110,7 +109,7 @@ exports.deactivate = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Specialist.updateOne({
-    id: req.params.id
+    _id: req.params.id
   }, {
     $set: {
       active: false

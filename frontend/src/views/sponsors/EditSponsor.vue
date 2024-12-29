@@ -60,6 +60,23 @@
                 required
               ></textarea>
             </div>
+            <div class="form-group">
+              <select
+                id="sltQuota"
+                class="form-control form-control-lg"
+                v-model="sponsor.quota"
+                required
+              >
+                <option value="">Selecione um tipo de quota</option>
+                <option
+                  v-for="(label, value) in quotaTypes"
+                  :value="value"
+                  :key="value"
+                >
+                  {{ label }}
+                </option>
+              </select>
+            </div>
             <div class="button-group">
               <button
                 type="button"
@@ -106,10 +123,19 @@ export default {
       sponsor: {},
       animals: [],
       categories: {
-        Promotional: "Promocional",
-        "Recurring donation": "Doação Recorrente",
-        "One-off donation": "Doação Única",
+        Promotional: "Patrocínio Promocional",
+        "Doação Recorrente": "Doação Recorrente",
+        "Doação Única": "Doação Única",
+        Corporativo: "Patrocínio Corporativo",
+        Evento: "Patrocínio de Evento",
+        Subsídio: "Subsídio",
+        Parceria: "Parceria Estratégica",
         Other: "Outros"
+      },
+      quotaTypes: {
+        Corporativo: "Corporativo",
+        Individual: "Individual",
+        Especial: "Especial"
       }
     };
   },

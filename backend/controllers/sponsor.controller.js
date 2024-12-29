@@ -39,7 +39,7 @@ exports.update = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Sponsor.findOneAndUpdate({
-    id: req.params.id
+    _id: req.params.id
   }, {
     $set: req.body
   }, {
@@ -60,7 +60,7 @@ exports.delete = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Sponsor.deleteOne({
-    id: req.params.id
+    _id: req.params.id
   }, (error, result) => {
     if (error) throw error;
     if (result.deletedCount <= 0) return res.status(SponsorMessages.error.e0.http).send(SponsorMessages.error.e0);
@@ -74,7 +74,7 @@ exports.getOne = (req, res) => {
   if (errors.length > 0) return res.status(406).send(errors);
 
   Sponsor.findOne({
-    id: req.params.id
+    _id: req.params.id
   }, (error, sponsor) => {
     if (error) throw error;
     if (!sponsor) return res.status(SponsorMessages.error.e1.http).send(SponsorMessages.error.e1);
